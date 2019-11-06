@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="849.0" minWidth="1368.0" prefHeight="849.0" prefWidth="1368.0" stylesheets="@bootstrap3.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="849.0" prefWidth="1368.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Close" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Delete" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="track-background" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                    <tabs>
+                      <Tab text="View Table">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="37.0" layoutY="36.0" prefHeight="217.0" prefWidth="1241.0" text="Single Encounter Table Controller. Information and how to use the app goes here!" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="36.0" />
+                                    <Button fx:id="viewBtn" layoutX="1005.0" layoutY="302.0" mnemonicParsing="false" onAction="#viewTable" prefHeight="32.0" prefWidth="174.0" stylesheets="@bootstrap3.css" text="View" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="300.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Add Entry">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="addBtn" layoutX="1015.0" mnemonicParsing="false" onAction="#addEntry" prefHeight="32.0" prefWidth="174.0" stylesheets="@bootstrap3.css" text="Insert" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="300.0" />
+                                    <Label layoutX="62.0" layoutY="38.0" stylesheets="@bootstrap3.css" text="UR Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
+                                    <Label layoutX="62.0" layoutY="91.0" stylesheets="@bootstrap3.css" text="Primary Admission Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0" />
+                                    <Label layoutX="63.0" layoutY="145.0" stylesheets="@bootstrap3.css" text="Secondary Admission Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="150.0" />
+                                    <Label layoutX="63.0" layoutY="193.0" stylesheets="@bootstrap3.css" text="Order ID:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="200.0" />
+                                    <Label layoutX="697.0" layoutY="56.0" stylesheets="@bootstrap3.css" text="Admission Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="50.0" />
+                                    <Label layoutX="599.0" layoutY="91.0" stylesheets="@bootstrap3.css" text="Discharge Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="100.0" />
+                                    <Label layoutX="599.0" layoutY="145.0" stylesheets="@bootstrap3.css" text="Active?" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="150.0" />
+                                    <Label layoutX="599.0" layoutY="193.0" stylesheets="@bootstrap3.css" text="Bed Request ID" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="200.0" />
+                                    <TextField fx:id="addUrNum" layoutX="328.0" layoutY="44.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="50.0" />
+                                    <TextField fx:id="addPrmAdmNum" layoutX="328.0" layoutY="100.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="100.0" />
+                                    <TextField fx:id="addSecAdmNum" layoutX="322.0" layoutY="144.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="150.0" />
+                                    <TextField fx:id="addOrdId" layoutX="328.0" layoutY="194.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="200.0" />
+                                    <TextField fx:id="addAdmDate" layoutX="863.0" layoutY="44.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="50.0" />
+                                    <TextField fx:id="addDisDate" layoutX="869.0" layoutY="108.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="100.0" />
+                                    <TextField fx:id="addActive" layoutX="889.0" layoutY="164.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="150.0" />
+                                    <TextField fx:id="addBedReqID" layoutX="889.0" layoutY="214.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Update Entry">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="updateBtn" mnemonicParsing="false" onAction="#updEntry" prefWidth="174.0" stylesheets="@bootstrap3.css" text="Update" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="300.0" />
+                                    <TextField fx:id="updURNum" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="50.0" />
+                                    <TextField fx:id="updPrmAdmNum" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="100.0" />
+                                    <TextField fx:id="updSecAdmNum" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="150.0" />
+                                    <TextField fx:id="updOrdID" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="200.0" />
+                                    <TextField fx:id="updAdmDat" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="50.0" />
+                                    <TextField fx:id="updDisDat" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="100.0" />
+                                    <TextField fx:id="updActive" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="150.0" />
+                                    <TextField fx:id="updBedReqID" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0" />
+                                    <Label text="Bed Request ID" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="200.0" />
+                                    <Label text="Active?" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="150.0" />
+                                    <Label text="Discharge Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="100.0" />
+                                    <Label text="Admission Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="50.0" />
+                                    <Label text="Order ID:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="200.0" />
+                                    <Label text="Secondary Admission Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="150.0" />
+                                    <Label text="Primary Admission Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0" />
+                                    <Label text="UR Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Delete Entry">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="deleteBtn" layoutX="788.0" layoutY="300.0" mnemonicParsing="false" onAction="#delEntry" prefWidth="174.0" stylesheets="@bootstrap3.css" text="Delete" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="300.0" />
+                                    <Label text="UR Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
+                                    <TextField fx:id="delURNum" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="50.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TableView fx:id="viewTable" prefHeight="418.0" prefWidth="1366.0" stylesheets="@bootstrap3.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
