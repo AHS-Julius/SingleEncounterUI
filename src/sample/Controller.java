@@ -106,11 +106,18 @@ public class Controller implements Initializable {
 
     private String setConnection() {
         //hardcoded values
-        String serverName = "DESKTOP-H2AK16H";
+
+        String serverName = "server488s"; //"DESKTOP-H2AK16H";
+        String portNumber = "1433";
+        String databaseName = "AHRhapsodySingleEncounterTEST"; //"SingleEncounter";
+        String userName =  "servicer-singleenc"; //"julius";
+        String password = "SingleEncounterP@$$"; //"ZAQ!2wsxcde3";
+
+        /*String serverName = "DESKTOP-H2AK16H";
         String portNumber = "1433";
         String databaseName = "SingleEncounter";
-        String userName = "julius";
-        String password = "ZAQ!2wsxcde3";
+        String userName =  "julius";
+        String password = "ZAQ!2wsxcde3";*/
 
         //connect to DB
         return  "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + databaseName + ";user=" + userName + ";password=" + password;
@@ -186,6 +193,21 @@ public class Controller implements Initializable {
             return;
         }
 
+        //validation
+        if (!isAlphanumeric(addUrNum.getText()) || !isAlphanumeric(addPrmAdmNum.getText()) ||
+                !isAlphanumeric(addSecAdmNum.getText()) || !isAlphanumeric(addBedReqID.getText())||
+                !isAlphanumeric(addActive.getText()) || !isAlphanumeric(addDisDate.getText()) ||
+                !isAlphanumeric(addAdmDate.getText()) || !isAlphanumeric(addOrdId.getText()) ){
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Data Validation");
+            alert.setHeaderText("Data must be in alphanumeric format");
+            alert.setContentText("Please Try Again.");
+
+            alert.showAndWait();
+            return;
+        }
+
         //clear table
         viewTable.getColumns().clear();
 
@@ -196,6 +218,21 @@ public class Controller implements Initializable {
             String SQL = "EXECUTE dbo.spSingleEncounter_insertRecord '" + addUrNum.getText() + "', '" + addPrmAdmNum.getText() + "', '" + addSecAdmNum.getText() + "', '" + addOrdId.getText() + "', '" +
                     addAdmDate.getText() + "', '" +  addDisDate.getText() + "', '" + addActive.getText() + "', '" + addBedReqID.getText() + "', 'Insert', 'MANUAL'";
             System.out.println(SQL);
+
+            //validation
+            ResultSet rs = stmt.executeQuery("SELECT UR FROM tblSingleEncounterLookup WHERE UR =" + addUrNum.getText());
+            System.out.println(rs.toString());
+            if(rs.next()){
+                refreshViewTable();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Data Validation");
+                alert.setHeaderText("UR Number already exists.");
+                alert.setContentText("Please Try Again.");
+
+                alert.showAndWait();
+                return;
+            }
+
             stmt.executeQuery(SQL);
             refreshViewTable();
             System.out.println("Data insert...");
@@ -207,6 +244,21 @@ public class Controller implements Initializable {
 
     @FXML
     public void updEntry (javafx.event.ActionEvent e){
+
+        //validation
+        if (!isAlphanumeric(updURNum.getText()) || !isAlphanumeric(updPrmAdmNum.getText()) ||
+                !isAlphanumeric(updSecAdmNum.getText()) || !isAlphanumeric(updBedReqID.getText())||
+                !isAlphanumeric(updActive.getText()) || !isAlphanumeric(updDisDat.getText()) ||
+                !isAlphanumeric(updAdmDat.getText()) || !isAlphanumeric(updOrdID.getText()) ){
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Data Validation");
+            alert.setHeaderText("Data must be in alphanumeric format");
+            alert.setContentText("Please Try Again.");
+
+            alert.showAndWait();
+            return;
+        }
 
         //clear table
         viewTable.getColumns().clear();
@@ -229,6 +281,18 @@ public class Controller implements Initializable {
 
     @FXML
     public void delEntry (javafx.event.ActionEvent e){
+
+        //validation
+        if (!isAlphanumeric(delURNum.getText())){
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Data Validation");
+            alert.setHeaderText("Data must be in alphanumeric format");
+            alert.setContentText("Please Try Again.");
+
+            alert.showAndWait();
+            return;
+        }
 
         //clear table
         viewTable.getColumns().clear();
@@ -298,6 +362,17 @@ public class Controller implements Initializable {
             }
 //        }
         System.out.println("End");
+    }
+
+
+    public boolean isAlphanumeric(String str) {
+        for (int i=0; i<str.length(); i++) {
+            char c = str.charAt(i);
+            if (!Character.isDigit(c) && !Character.isLetter(c))
+                return false;
+        }
+
+        return true;
     }
 
 }

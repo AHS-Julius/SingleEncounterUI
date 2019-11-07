@@ -42,7 +42,7 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Label layoutX="37.0" layoutY="36.0" prefHeight="217.0" prefWidth="1241.0" text="Single Encounter Table Controller. Information and how to use the app goes here!" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="36.0" />
+                                    <Label layoutX="37.0" layoutY="36.0" prefHeight="30.0" prefWidth="801.0" text="The Single Encounter UI Application is used to control the Single Encounter Database for Rhapsody." AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="36.0" />
                                     <Button fx:id="viewBtn" layoutX="1005.0" layoutY="302.0" mnemonicParsing="false" onAction="#viewTable" prefHeight="32.0" prefWidth="174.0" stylesheets="@bootstrap3.css" text="View" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="300.0" />
                                  </children>
                               </AnchorPane>
@@ -60,15 +60,15 @@
                                     <Label layoutX="697.0" layoutY="56.0" stylesheets="@bootstrap3.css" text="Admission Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="50.0" />
                                     <Label layoutX="599.0" layoutY="91.0" stylesheets="@bootstrap3.css" text="Discharge Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="100.0" />
                                     <Label layoutX="599.0" layoutY="145.0" stylesheets="@bootstrap3.css" text="Active?" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="150.0" />
-                                    <Label layoutX="599.0" layoutY="193.0" stylesheets="@bootstrap3.css" text="Bed Request ID" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="200.0" />
+                                    <Label layoutX="599.0" layoutY="193.0" stylesheets="@bootstrap3.css" text="Bed Request Date" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="200.0" />
                                     <TextField fx:id="addUrNum" layoutX="328.0" layoutY="44.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="50.0" />
                                     <TextField fx:id="addPrmAdmNum" layoutX="328.0" layoutY="100.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="100.0" />
                                     <TextField fx:id="addSecAdmNum" layoutX="322.0" layoutY="144.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="150.0" />
                                     <TextField fx:id="addOrdId" layoutX="328.0" layoutY="194.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="200.0" />
-                                    <TextField fx:id="addAdmDate" layoutX="863.0" layoutY="44.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="50.0" />
-                                    <TextField fx:id="addDisDate" layoutX="869.0" layoutY="108.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="100.0" />
+                                    <TextField fx:id="addAdmDate" layoutX="863.0" layoutY="44.0" prefHeight="39.0" prefWidth="298.0" promptText="YYYYMMDDhhmmss" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="50.0" />
+                                    <TextField fx:id="addDisDate" layoutX="869.0" layoutY="108.0" prefHeight="39.0" prefWidth="298.0" promptText="YYYYMMDDhhmmss" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="100.0" />
                                     <TextField fx:id="addActive" layoutX="889.0" layoutY="164.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="150.0" />
-                                    <TextField fx:id="addBedReqID" layoutX="889.0" layoutY="214.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0" />
+                                    <TextField fx:id="addBedReqID" layoutX="889.0" layoutY="214.0" prefHeight="39.0" prefWidth="298.0" promptText="YYYYMMDDhhmmss" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0" />
                                  </children>
                               </AnchorPane>
                         </content>
