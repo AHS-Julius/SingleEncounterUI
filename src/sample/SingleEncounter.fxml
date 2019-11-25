@@ -82,11 +82,11 @@
                                     <TextField fx:id="updPrmAdmNum" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="100.0" />
                                     <TextField fx:id="updSecAdmNum" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="150.0" />
                                     <TextField fx:id="updOrdID" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="200.0" />
-                                    <TextField fx:id="updAdmDat" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="50.0" />
-                                    <TextField fx:id="updDisDat" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="100.0" />
+                                    <TextField fx:id="updAdmDat" prefHeight="39.0" prefWidth="298.0" promptText="YYYYMMDDhhmmss" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="50.0" />
+                                    <TextField fx:id="updDisDat" prefHeight="39.0" prefWidth="298.0" promptText="YYYYMMDDhhmmss" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="100.0" />
                                     <TextField fx:id="updActive" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="150.0" />
-                                    <TextField fx:id="updBedReqID" prefHeight="39.0" prefWidth="298.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0" />
-                                    <Label text="Bed Request ID" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="200.0" />
+                                    <TextField fx:id="updBedReqID" prefHeight="39.0" prefWidth="298.0" promptText="YYYYMMDDhhmmss" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0" />
+                                    <Label text="Bed Request Date" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="200.0" />
                                     <Label text="Active?" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="150.0" />
                                     <Label text="Discharge Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="100.0" />
                                     <Label text="Admission Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="50.0" />
