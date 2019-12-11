@@ -95,6 +95,30 @@ public class Controller implements Initializable {
     @FXML
     private TextField updURNum;
 
+    @FXML
+    private TextField seaActive;
+
+    @FXML
+    private TextField seaSecAdmNum;
+
+    @FXML
+    private TextField seaDisDate;
+
+    @FXML
+    private TextField seaAdmDate;
+
+    @FXML
+    private TextField seaPriAdmNum;
+
+    @FXML
+    private TextField seaURNum;
+
+    @FXML
+    private TextField seaOrdID;
+
+    @FXML
+    private TextField seaBedReqDate;
+
     private ObservableList<ObservableList> data;
 
     private  Connection connection;
@@ -107,17 +131,17 @@ public class Controller implements Initializable {
     private String setConnection() {
         //hardcoded values
 
-        String serverName = "server488s"; //"DESKTOP-H2AK16H";
-        String portNumber = "1433";
-        String databaseName = "AHRhapsodySingleEncounterTEST"; //"SingleEncounter";
-        String userName =  "servicer-singleenc"; //"julius";
-        String password = "SingleEncounterP@$$"; //"ZAQ!2wsxcde3";
+//        String serverName = "server488s"; //"DESKTOP-H2AK16H";
+//        String portNumber = "1433";
+//        String databaseName = "AHRhapsodySingleEncounterDEV"; //"SingleEncounter";
+//        String userName =  "service-singleenc"; //"julius";
+//        String password = "SingleEncounterP@$$"; //"ZAQ!2wsxcde3";
 
-        /*String serverName = "DESKTOP-H2AK16H";
+        String serverName = "DESKTOP-H2AK16H";
         String portNumber = "1433";
         String databaseName = "SingleEncounter";
         String userName =  "julius";
-        String password = "ZAQ!2wsxcde3";*/
+        String password = "ZAQ!2wsxcde3";
 
         //connect to DB
         return  "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + databaseName + ";user=" + userName + ";password=" + password;
@@ -180,7 +204,7 @@ public class Controller implements Initializable {
     public void addEntry (javafx.event.ActionEvent e){
         //validation
         if (addUrNum.getText() == null || addUrNum.getText().trim().equalsIgnoreCase("") ||
-                addPrmAdmNum.getText() == null || addUrNum.getText().trim().equalsIgnoreCase("") ||
+                addPrmAdmNum.getText() == null || addPrmAdmNum.getText().trim().equalsIgnoreCase("") ||
                 addAdmDate.getText() == null || addAdmDate.getText().trim().equalsIgnoreCase("") ||
                 addActive.getText() == null || addActive.getText().equalsIgnoreCase("")  ){
             System.out.println("Data cannot be NULL");
@@ -258,6 +282,21 @@ public class Controller implements Initializable {
 
             alert.showAndWait();
             return;
+
+        }
+
+        if (updURNum.getText() == null || updURNum.getText().trim().equalsIgnoreCase("") ||
+                updPrmAdmNum.getText() == null || updPrmAdmNum.getText().trim().equalsIgnoreCase("") ||
+                updAdmDat.getText() == null || updAdmDat.getText().trim().equalsIgnoreCase("") ||
+                updActive.getText() == null || updActive.getText().equalsIgnoreCase("")  ) {
+            System.out.println("Data cannot be NULL");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Data Validation");
+            alert.setHeaderText("UR Number, Primary Admission Number, Admission Date, and Active Status cannot be blank.");
+            alert.setContentText("Please Try Again.");
+
+            alert.showAndWait();
+            return;
         }
 
         //clear table
@@ -312,9 +351,98 @@ public class Controller implements Initializable {
         }
     }
 
+    @FXML
+    public void searchTable (javafx.event.ActionEvent e){
+        //validation
+        if ((seaURNum.getText() == null || seaURNum.getText().trim().equalsIgnoreCase("")) &&
+                (seaPriAdmNum.getText() == null || seaPriAdmNum.getText().trim().equalsIgnoreCase("")) &&
+                (seaSecAdmNum.getText() == null || seaSecAdmNum.getText().trim().equalsIgnoreCase("")) &&
+                (seaOrdID.getText() == null || seaOrdID.getText().trim().equalsIgnoreCase("")) &&
+                (seaAdmDate.getText() == null || seaAdmDate.getText().trim().equalsIgnoreCase("")) &&
+                (seaDisDate.getText() == null || seaDisDate.getText().trim().equalsIgnoreCase("")) &&
+                (seaActive.getText() == null || seaActive.getText().equalsIgnoreCase("")) &&
+                (seaBedReqDate.getText() == null || seaBedReqDate.getText().equalsIgnoreCase(""))
+            ) {
+            System.out.println("Search criteria cannot be NULL");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Data Validation");
+            alert.setHeaderText("Search criteria cannot be empty.");
+            alert.setContentText("Please Try Again.");
+
+            alert.showAndWait();
+            return;
+        }
+
+        String UR;
+        String PriAdmNum;
+        String SecAdmNum;
+        String OrdID;
+        String AdmDate;
+        String DisDate;
+        String Active;
+        String BedReqDate;
+
+        if(seaURNum.getText().trim().equalsIgnoreCase("")) { UR = "\'\'";} else {UR = "'"+ seaURNum.getText() + "'";}
+        if(seaPriAdmNum.getText().trim().equalsIgnoreCase("")) { PriAdmNum = "\'\'";} else {PriAdmNum = "'"+ seaPriAdmNum.getText() + "'";}
+        if(seaSecAdmNum.getText().trim().equalsIgnoreCase("")) { SecAdmNum = "\'\'";} else {SecAdmNum = "'"+ seaSecAdmNum.getText() + "'";}
+        if(seaOrdID.getText().trim().equalsIgnoreCase("")) { OrdID = "\'\'";} else {OrdID = "'"+ seaOrdID.getText() + "'";}
+        if(seaAdmDate.getText().trim().equalsIgnoreCase("")) { AdmDate = "\'\'";} else {AdmDate = "'"+ seaAdmDate.getText() + "'";}
+        if(seaDisDate.getText().trim().equalsIgnoreCase("")) { DisDate= "\'\'";} else {DisDate = "'"+ seaDisDate.getText() + "'";}
+        if(seaActive.getText().trim().equalsIgnoreCase("")) { Active= "\'\'";} else {Active = "'"+ seaActive.getText() + "'";}
+        if(seaBedReqDate.getText().trim().equalsIgnoreCase("")) { BedReqDate = "\'\'";} else {BedReqDate = "'"+ seaBedReqDate.getText() + "'";}
+
+        this.viewTable.getColumns().clear();
+        this.data = FXCollections.observableArrayList();
+        try ( Connection con = DriverManager.getConnection(setConnection()); Statement stmt = con.createStatement()/*this.connection.createStatement();*/) {
+            String SQL = "SELECT * FROM spSingleEncounter_searchByAny (" + UR + ", " + PriAdmNum + ", " + SecAdmNum + ", " + OrdID + ", "
+                    + AdmDate + ", " + DisDate + ", " + Active + ", " + BedReqDate + ")";
+            System.out.println(SQL);
+            ResultSet rs = stmt.executeQuery(SQL);
+
+            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                //We are using non property style for making dynamic table
+                final int j = i;
+                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+
+                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                        System.out.println(param.getValue().get(j));
+                        return new SimpleStringProperty(param.getValue().get(j) == null ? "" : param.getValue().get(j).toString());
+                    }
+                });
+                //System.out.println("test" + updPrmAdmNum.getText());
+                this.viewTable.getColumns().addAll(col);
+            }
+
+            // Iterate through the data in the result set and display it.
+            while (rs.next()) {
+                ObservableList<String> row = FXCollections.observableArrayList();
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                    //Iterate Column
+                    row.add(rs.getString(i));
+                }
+                System.out.println("Row [1] added " + row);
+                this.data.add(row);
+
+            }
+
+            //FINALLY ADDED TO TableView
+            this.viewTable.setItems(data);
+
+            //System.out.println(rs.getString("UR") + " " + rs.getString("PriAdmNo") + " " + rs.getString("SecAdmNo") + " " + rs.getString("OrderID") + " " +
+            //        rs.getString("AdmDate") + " " + rs.getString("DisDate") + " " + rs.getString("Active") + " " + rs.getString("BedRequest"));
+        }
+
+        // Handle any errors that may have occurred.
+        catch (Exception v) {
+            v.printStackTrace();
+        }
+    }
+
     public  void  refreshViewTable (){
         //clear table
         System.out.println("Start");
+        System.out.println(System.getProperty("user.name"));
         this.viewTable.getColumns().clear();
 
         this.data = FXCollections.observableArrayList();

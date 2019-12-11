@@ -42,8 +42,24 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Label layoutX="37.0" layoutY="36.0" prefHeight="30.0" prefWidth="801.0" text="The Single Encounter UI Application is used to control the Single Encounter Database for Rhapsody." AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="36.0" />
-                                    <Button fx:id="viewBtn" layoutX="1005.0" layoutY="302.0" mnemonicParsing="false" onAction="#viewTable" prefHeight="32.0" prefWidth="174.0" stylesheets="@bootstrap3.css" text="View" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="300.0" />
+                                    <Button fx:id="viewBtn" layoutX="1005.0" layoutY="302.0" mnemonicParsing="false" onAction="#viewTable" prefHeight="32.0" prefWidth="174.0" stylesheets="@bootstrap3.css" text="View All" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="300.0" />
+                                    <Button fx:id="viewBtn1" layoutX="790.0" layoutY="300.0" mnemonicParsing="false" onAction="#searchTable" prefHeight="32.0" prefWidth="174.0" stylesheets="@bootstrap3.css" text="Search" AnchorPane.rightAnchor="402.0" AnchorPane.topAnchor="300.0" />
+                                    <TextField fx:id="seaURNum" layoutX="540.0" layoutY="235.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="50.0" />
+                                    <TextField fx:id="seaPriAdmNum" layoutX="950.0" layoutY="25.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="100.0" />
+                                    <TextField fx:id="seaSecAdmNum" layoutX="629.0" layoutY="25.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="150.0" />
+                                    <TextField fx:id="seaOrdID" layoutX="964.0" layoutY="103.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="200.0" />
+                                    <TextField fx:id="seaAdmDate" layoutX="303.0" layoutY="14.0" prefHeight="39.0" prefWidth="298.0" promptText="YYYYMMDDhhmmss" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="50.0" />
+                                    <TextField fx:id="seaDisDate" layoutX="31.0" layoutY="269.0" prefHeight="39.0" prefWidth="298.0" promptText="YYYYMMDDhhmmss" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="100.0" />
+                                    <TextField fx:id="seaActive" layoutX="921.0" layoutY="184.0" prefHeight="39.0" prefWidth="298.0" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="150.0" />
+                                    <TextField fx:id="seaBedReqDate" layoutX="354.0" layoutY="280.0" prefHeight="39.0" prefWidth="298.0" promptText="YYYYMMDDhhmmss" stylesheets="@bootstrap3.css" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0" />
+                                    <Label layoutX="779.0" layoutY="136.0" stylesheets="@bootstrap3.css" text="Bed Request Date" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="200.0" />
+                                    <Label layoutX="572.0" layoutY="110.0" stylesheets="@bootstrap3.css" text="Active?" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="150.0" />
+                                    <Label layoutX="509.0" layoutY="177.0" stylesheets="@bootstrap3.css" text="Discharge Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="100.0" />
+                                    <Label layoutX="342.0" layoutY="242.0" stylesheets="@bootstrap3.css" text="Admission Date:" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="50.0" />
+                                    <Label layoutX="392.0" layoutY="83.0" stylesheets="@bootstrap3.css" text="Order ID:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="200.0" />
+                                    <Label layoutX="20.0" layoutY="202.0" stylesheets="@bootstrap3.css" text="Secondary Admission Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="150.0" />
+                                    <Label layoutX="31.0" layoutY="96.0" stylesheets="@bootstrap3.css" text="Primary Admission Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0" />
+                                    <Label layoutX="44.0" layoutY="59.0" stylesheets="@bootstrap3.css" text="UR Number:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
                                  </children>
                               </AnchorPane>
                         </content>
